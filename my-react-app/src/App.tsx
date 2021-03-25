@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {FC} from 'react';
+import styled from 'styled-components';
 
-function App() {
+import MainHeader from '../src/components/common/header/MainHeader';
+import SidePanel from '../src/components/common/sidePanel/SidePanel';
+const Wrapper = styled.div`
+    justify-content: center;
+    align-items:center;
+    display:flex;
+    flex-direction: column;
+`;
+const Content = styled.div`
+    max-width:1200px;
+    align-items: center;
+    display:flex;
+`;
+
+const App : FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+        <MainHeader/>
+        <Content>
+          <SidePanel/>
+          <div>tu bedzie reszta</div>
+        </Content>
+    </Wrapper>
   );
 }
 
