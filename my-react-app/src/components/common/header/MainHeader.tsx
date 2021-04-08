@@ -20,30 +20,30 @@ const Icons = styled.div`
 `;
 
 const MainHeader: FC = () => {
-    
-  return (
-    <Wrapper>
-        <IconHolder
-            source="../../../icons/ecosystem.png"
-            alt="siteLogo"
-        />
-      <PageSelect />
-      <MainSearch />
-      <Icons>
-          <IconHolder
-            source ="../../../icons/house.png"
-            alt="houseLogo"
-          />
-          <IconHolder
-            source ="../../../icons/comments.png"
-            alt="commentsLogo"
-          />
-          <IconHolder
-            source ="../../../icons/bell.png"
-            alt="alertLogo"
-          />
-      </Icons>
-    </Wrapper>
-  );
+
+    return (
+        <Wrapper>
+            <IconHolder
+                source="../../../icons/ecosystem.png"
+                alt="siteLogo"
+            />
+            <PageSelect />
+            <MainSearch />
+            <Icons>
+                <IconHolder
+                    source="../../../icons/house.png"
+                    alt="houseLogo"
+                />
+                <IconHolder
+                    source="../../../icons/comments.png"
+                    alt="commentsLogo"
+                />
+                <IconHolder
+                    source="../../../icons/bell.png"
+                    alt="alertLogo"
+                />
+            </Icons>
+        </Wrapper>
+    );
 };
 export default MainHeader;

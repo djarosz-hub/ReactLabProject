@@ -5,20 +5,32 @@ import PlatformSection from "./PlatformSection";
 import WorkspacesSection from "./WorkspacesSection";
 
 const Menu = styled.div`
-    display:flex;
-    flex-direction:column;
+  display: flex;
+  flex-direction: column;
 `;
 const ExpandedMenu: FC = () => {
-    return (
-      <Menu>
-          <input placeholder="Filter..."></input>
-          <span>Platform</span>
-          <MenuOption
-            source="../../../icons/house2.png"
-            alt="houseIcon"
-            text="Home"
-          />
-      </Menu>
-    );
-  };
-  export default ExpandedMenu;
+  return (
+    <Menu>
+      <input placeholder="Filter..."></input>
+      <div>
+        <span>Platform</span>
+        <MenuOption
+          source="../../../icons/house2.png"
+          alt="houseIcon"
+          text="Home"
+        />
+        <MenuOption
+          source="../../../icons/publications.png"
+          alt="publicationsIcon"
+          text="Publications"
+        />
+        <MenuOption
+          source="../../../icons/people.png"
+          alt="peopleIcon"
+          text="People"
+        />
+      </div>
+    </Menu>
+  );
+};
+export default ExpandedMenu;
