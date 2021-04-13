@@ -1,32 +1,39 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import MainSearch from "./MainSearch";
-import PageSelect from "./PageSelect";
-import IconHolder from "../../IconHolder";
+import PageSelect from "./pageSelectSection/PageSelect";
+import IconHolder from "./IconHolder";
 
 const Wrapper = styled.div`
-  max-width: 1200px;
-  height: 50px;
-  align-items: center;
-  display: flex;
-  box-shadow: -0px 5px 5px #d4d4d4;
+    width: 1200px;
+    height: 50px;
+    align-items: center;
+    display: flex;
+    box-shadow: -0px 5px 5px #d4d4d4;
 `;
-
+const HeaderLogo = styled.div`
+    width:50px;
+    height:50px;
+    margin-right:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+`;
 const Icons = styled.div`
-  width: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+    width: 400px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right:10px;
+    box-sizing:border-box;
 `;
 
 const MainHeader: FC = () => {
 
     return (
         <Wrapper>
-            <IconHolder
-                source="../../../icons/ecosystem.png"
-                alt="siteLogo"
-            />
+            <HeaderLogo>
+                <img src="../../../icons/ecosystem.png" alt="headerLogo" />
+            </HeaderLogo>
             <PageSelect />
             <MainSearch />
             <Icons>
