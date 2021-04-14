@@ -1,19 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import AccountMenuSection from "./AccountMenuSection";
 import MenuSection, { IMenuSection } from "./MenuSection";
+import Logout from "./Logout";
 
 const Menu = styled.div`
   display: flex;
   width:200px;
   flex-direction: column;
   border: 1px solid #a6a6a6;
+  /* position:absolute; */
 `;
-const OpeningSection = styled(Menu)`
+const Input = styled.input`
+    border: 1px #a6a6a6 solid;
+    margin: 5px;
+    &:focus{
+        border: 1px solid #1670BE;
+        box-shadow: 0 0 3px #1670BE;
+        outline-offset: 0px;
+        outline: none;
+    }
+    /* position:absolute; */
+`;
 
-`;
 const MiddleSection = styled(Menu)`
     border:none;
     border-top: 1px solid #a6a6a6;
+    /* position:absolute; */
 `;
 
 const SectionWithScroll = styled(Menu)`
@@ -64,7 +77,7 @@ class ExpandedMenu extends React.Component {
                 imgSource: "../../../icons/administration.png",
                 alt: "administrationIcon",
                 text: "Administration",
-                linkTo: "/",
+                linkTo: "/profile",
             }
         ]
     };
@@ -105,15 +118,30 @@ class ExpandedMenu extends React.Component {
         ]
     };
 
+    accountSection: IMenuSection = {
+        title: "Account",
+        options: [
+            {
+                imgSource: "../../../icons/privacy.png",
+                alt: "privacyIcon",
+                text: "Privacy",
+                linkTo: "/profile"
+            },
+            {
+                imgSource: "../../../icons/settings.png",
+                alt: "settingsIcon",
+                text: "Settings",
+                linkTo: "/profile"
+            }
+        ]
+    };
+
     render() {
         return (
 
             <Menu>
-                <OpeningSection>
-
-                </OpeningSection>
                 <MiddleSection>
-                    <input placeholder="Filter..."></input>
+                    <Input placeholder="Filter..."/>
                     <SectionWithScroll>
                         <MenuSection
                             title={this.platformSection.title}
@@ -126,14 +154,15 @@ class ExpandedMenu extends React.Component {
                     </SectionWithScroll>
                 </MiddleSection>
                 <ProfileSection>
-
+                    <AccountMenuSection
+                        title={this.accountSection.title}
+                        options={this.accountSection.options}
+                    />
                 </ProfileSection>
                 <LogoutSection>
-
+                    <Logout/>
                 </LogoutSection>
-
             </Menu>
-
         );
     }
 }

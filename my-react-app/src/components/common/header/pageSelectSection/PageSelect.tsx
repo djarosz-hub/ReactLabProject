@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   width: 300px;
   display: flex;
   flex-direction:column;
+  position:relative;
 `;
 
 const ActualPageName = styled.div`
@@ -16,6 +17,7 @@ const ActualPageName = styled.div`
 const InnerWrapper = styled(Wrapper)`
   width: 220px;
   flex-direction:row;
+  position:relative;
 `;
 export const IconHolder = styled.div`
   width:40px;

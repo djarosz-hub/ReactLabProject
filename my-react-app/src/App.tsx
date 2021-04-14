@@ -8,15 +8,16 @@ import Entities from "./components/mainContent/entitiesPage/Entities";
 import Workspaces from "./components/mainContent/workspacesPage/Workspaces";
 import Profile from "./components/mainContent/profilePage/Profile";
 const Wrapper = styled.div`
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 `;
 const Content = styled.div`
-  max-width: 1200px;
-  align-items: center;
-  display: flex;
+    max-width: 1200px;
+    align-items: center;
+    display: flex;
+    background-color:#c8caca;
 `;
 // const CustomLink = styled(Link)`
 
