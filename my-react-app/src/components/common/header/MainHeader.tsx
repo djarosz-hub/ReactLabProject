@@ -9,7 +9,8 @@ const Wrapper = styled.div`
     height: 50px;
     align-items: center;
     display: flex;
-    box-shadow: -0px 5px 5px #d4d4d4;
+    box-shadow: -0px 5px 5px #c5c5c5;
+    z-index:1000;
 `;
 const HeaderLogo = styled.div`
     width:50px;

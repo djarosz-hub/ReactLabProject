@@ -5,11 +5,12 @@ import MenuSection, { IMenuSection } from "./MenuSection";
 import Logout from "./Logout";
 
 const Menu = styled.div`
-  display: flex;
-  width:200px;
-  flex-direction: column;
-  border: 1px solid #a6a6a6;
-  /* position:absolute; */
+    display: flex;
+    width:200px;
+    flex-direction: column;
+    border: 1px solid #a6a6a6;
+    background-color:#f7f7f7;
+    position:absolute;
 `;
 const Input = styled.input`
     border: 1px #a6a6a6 solid;
@@ -20,29 +21,32 @@ const Input = styled.input`
         outline-offset: 0px;
         outline: none;
     }
-    /* position:absolute; */
+    position:relative;
 `;
 
 const MiddleSection = styled(Menu)`
     border:none;
     border-top: 1px solid #a6a6a6;
-    /* position:absolute; */
+    position:relative;
 `;
 
 const SectionWithScroll = styled(Menu)`
     border:none;
     overflow:auto;
     height:350px;
+    position:relative;
 `;
 
 const ProfileSection = styled(Menu)`
     border:none;
     border-top: 1px solid #a6a6a6;
+    position:relative;
 `;
 
 const LogoutSection = styled(Menu)`
     border:none;
     border-top: 1px solid #a6a6a6;
+    position:relative;
 `;
 
 class ExpandedMenu extends React.Component {

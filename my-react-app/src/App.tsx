@@ -14,10 +14,10 @@ const Wrapper = styled.div`
     flex-direction: column;
 `;
 const Content = styled.div`
-    max-width: 1200px;
+    width:1200px;
     align-items: center;
     display: flex;
-    background-color:#c8caca;
+    background-color:#f8f8f8;
 `;
 // const CustomLink = styled(Link)`
 
