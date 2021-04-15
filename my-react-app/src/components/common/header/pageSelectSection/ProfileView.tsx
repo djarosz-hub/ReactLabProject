@@ -33,10 +33,15 @@ const TextHolder = styled.div`
 interface IProfileView {
     userName: string;
     linkTo: string;
+    closeDropMenu():void;
 }
 const ProfileView: FC<IProfileView> = (props) => {
+
+    const optionClick = () => {
+        props.closeDropMenu();
+    }
     return (
-        <Wrapper>
+        <Wrapper onClick={optionClick}>
             <ProfileImg />
             <TextHolder>
                 {props.userName}

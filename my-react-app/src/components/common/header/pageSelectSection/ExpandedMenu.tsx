@@ -26,7 +26,6 @@ const Input = styled.input`
 
 const MiddleSection = styled(Menu)`
     border:none;
-    border-top: 1px solid #a6a6a6;
     position:relative;
 `;
 
@@ -48,8 +47,15 @@ const LogoutSection = styled(Menu)`
     border-top: 1px solid #a6a6a6;
     position:relative;
 `;
+interface IExpandedMenu {
+    closeDropMenu(): void;
+}
 
-class ExpandedMenu extends React.Component {
+class ExpandedMenu extends React.Component<IExpandedMenu> {
+
+    closeDropMenu = () => {
+        this.props.closeDropMenu();
+    }
     platformSection: IMenuSection = {
         title: "Platform",
         options: [
@@ -83,7 +89,8 @@ class ExpandedMenu extends React.Component {
                 text: "Administration",
                 linkTo: "/profile",
             }
-        ]
+        ],
+        closeDropMenu: this.props.closeDropMenu
     };
 
     workSpacesSection: IMenuSection = {
@@ -119,7 +126,8 @@ class ExpandedMenu extends React.Component {
                 text: "Real estate contracts",
                 linkTo: "/workspaces",
             }
-        ]
+        ],
+        closeDropMenu: this.props.closeDropMenu
     };
 
     accountSection: IMenuSection = {
@@ -137,7 +145,8 @@ class ExpandedMenu extends React.Component {
                 text: "Settings",
                 linkTo: "/profile"
             }
-        ]
+        ],
+        closeDropMenu: this.props.closeDropMenu
     };
 
     render() {
@@ -145,15 +154,17 @@ class ExpandedMenu extends React.Component {
 
             <Menu>
                 <MiddleSection>
-                    <Input placeholder="Filter..."/>
+                    <Input placeholder="Filter..." />
                     <SectionWithScroll>
                         <MenuSection
                             title={this.platformSection.title}
                             options={this.platformSection.options}
+                            closeDropMenu={this.props.closeDropMenu}
                         />
                         <MenuSection
                             title={this.workSpacesSection.title}
                             options={this.workSpacesSection.options}
+                            closeDropMenu={this.props.closeDropMenu}
                         />
                     </SectionWithScroll>
                 </MiddleSection>
@@ -161,10 +172,11 @@ class ExpandedMenu extends React.Component {
                     <AccountMenuSection
                         title={this.accountSection.title}
                         options={this.accountSection.options}
+                        closeDropMenu={this.props.closeDropMenu}
                     />
                 </ProfileSection>
                 <LogoutSection>
-                    <Logout/>
+                    <Logout />
                 </LogoutSection>
             </Menu>
         );

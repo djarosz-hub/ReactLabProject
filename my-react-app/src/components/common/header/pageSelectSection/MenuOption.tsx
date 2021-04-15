@@ -22,15 +22,20 @@ export interface IMenuOption {
     text: string;
     linkTo: string;
 }
-function optionClick(link: string) {
-    return function () {
-        console.log(link);
-    }
+
+interface IMenuOptionProps extends IMenuOption {
+    closeDropMenu(): void;
 }
-const MenuOption: FC<IMenuOption> = (props) => {
+
+const MenuOption: FC<IMenuOptionProps> = (props) => {
+
+    const optionClick = () => {
+        props.closeDropMenu();
+    }
+
     return (
         <CustomLink to={props.linkTo}>
-            <Wrapper onClick={optionClick(props.linkTo)}>
+            <Wrapper onClick={optionClick}>
                 <IconHolder>
                     <img src={props.imgSource} alt={props.alt} />
                 </IconHolder>

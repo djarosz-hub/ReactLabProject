@@ -30,6 +30,9 @@ const DirectionIcon = styled.div`
     border: 1px #451cb4 solid;
     border-radius:2px;
     box-shadow: 2px 2px 2px #c5c5c5;
+    &:hover{
+        background-color:#a5a5a5;
+    }
 `;
 const TextHolder = styled.span`
     margin-left:5px;

@@ -11,6 +11,7 @@ export const Title = styled.div`
 export interface IMenuSection {
     title: string;
     options: IMenuOption[];
+    closeDropMenu(): void;
 }
 const MenuSection: FC<IMenuSection> = (props) => {
     return (
@@ -22,6 +23,7 @@ const MenuSection: FC<IMenuSection> = (props) => {
                 alt={el.alt}
                 text={el.text}
                 linkTo={el.linkTo}
+                closeDropMenu={props.closeDropMenu}
             />)}
         </>
     );

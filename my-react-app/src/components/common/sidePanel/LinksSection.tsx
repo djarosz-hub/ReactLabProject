@@ -10,8 +10,7 @@ const Wrapper = styled.div`
 const SingleLink = styled.div`
     display:flex;
     align-items:center;
-    margin:5px;
-    
+    margin:7px;
 `;
 const IconHolder = styled.div`
     display:flex;
@@ -21,8 +20,12 @@ const IconHolder = styled.div`
     height:auto;
 `;
 const CustomLink = styled(Link)`
+    width:150px;
     text-decoration: none;
     color:#0d2463;
+    &:hover{
+        background-color:#dbdbdb;
+    }
 `;
 const SidePanel: FC = () => {
     return (

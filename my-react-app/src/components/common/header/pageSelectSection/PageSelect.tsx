@@ -28,10 +28,13 @@ export const IconHolder = styled.div`
 `;
 
 const PageSelect: FC = () => {
-    const [wrapperRef, dropdownOpen, toggleDropdown] = useDropdown();
+    const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
     const menuHandler = () => {
         toggleDropdown();
     };
+    const closeMenu = () =>{
+        closeDropdown();
+    }
     return (
         <Wrapper>
             <div ref={wrapperRef}>
@@ -44,8 +47,8 @@ const PageSelect: FC = () => {
                         <img src="../../../icons/arrow-down.png" alt="arrowDropdown" />
                     </IconHolder>
                 </InnerWrapper>
+                {dropdownOpen && <ExpandedMenu closeDropMenu={closeMenu}/>}
             </div>
-                {dropdownOpen && <ExpandedMenu />}
         </Wrapper>
     );
 };

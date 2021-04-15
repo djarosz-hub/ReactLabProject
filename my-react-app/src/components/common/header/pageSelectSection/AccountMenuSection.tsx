@@ -13,6 +13,7 @@ const AccountMenuSection: FC<IMenuSection> = (props) => {
             <ProfileView
                 linkTo={"/profile"}
                 userName={"Jan Kowalski"}
+                closeDropMenu={props.closeDropMenu}
             />
             {props.options.map((el) => <MenuOption
                 key={el.text}
@@ -20,6 +21,7 @@ const AccountMenuSection: FC<IMenuSection> = (props) => {
                 alt={el.alt}
                 text={el.text}
                 linkTo={el.linkTo}
+                closeDropMenu={props.closeDropMenu}
             />)}
         </Wrapper>
     );
