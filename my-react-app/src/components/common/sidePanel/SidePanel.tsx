@@ -4,7 +4,7 @@ import ProfileSection from "./ProfileSection";
 import LinksSection from "./LinksSection";
 
 const Wrapper = styled.div`
-    width:23%;
+    width:270px;
     height:100%;
     display:flex;
     flex-direction:column;

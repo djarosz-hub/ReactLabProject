@@ -3,6 +3,7 @@ import styled from "styled-components";
 import AccountMenuSection from "./AccountMenuSection";
 import MenuSection, { IMenuSection } from "./MenuSection";
 import Logout from "./Logout";
+import { IMenuOption } from "./MenuOption";
 
 const Menu = styled.div`
     display: flex;
@@ -32,7 +33,9 @@ const MiddleSection = styled(Menu)`
 const SectionWithScroll = styled(Menu)`
     border:none;
     overflow:auto;
-    height:350px;
+    height:auto;
+    min-height:200px;
+    max-height:350px;
     position:relative;
 `;
 
@@ -53,6 +56,14 @@ interface IExpandedMenu {
 
 class ExpandedMenu extends React.Component<IExpandedMenu> {
 
+    state = {
+        filterValue: ""
+    }
+    filterHandler = (val: string) => {
+        this.setState({
+            filterValue: val
+        });
+    }
     closeDropMenu = () => {
         this.props.closeDropMenu();
     }
@@ -148,22 +159,33 @@ class ExpandedMenu extends React.Component<IExpandedMenu> {
         ],
         closeDropMenu: this.props.closeDropMenu
     };
+    filterCheck = (element: IMenuOption) => {
+        const input = this.state.filterValue.trim();
+        if (input === "")
+            return true;
+        const down = input.toLowerCase();
+        const text = element.text.toLowerCase();
 
+        if (text.includes(down))
+            return true; 
+        return false;
+    }
+    
     render() {
         return (
 
             <Menu>
                 <MiddleSection>
-                    <Input placeholder="Filter..." />
+                    <Input placeholder="Filter..." onChange={(e) => this.filterHandler(e.target.value)} />
                     <SectionWithScroll>
                         <MenuSection
                             title={this.platformSection.title}
-                            options={this.platformSection.options}
+                            options={this.platformSection.options.filter(el => this.filterCheck(el))}
                             closeDropMenu={this.props.closeDropMenu}
                         />
                         <MenuSection
                             title={this.workSpacesSection.title}
-                            options={this.workSpacesSection.options}
+                            options={this.workSpacesSection.options.filter(el => this.filterCheck(el))}
                             closeDropMenu={this.props.closeDropMenu}
                         />
                     </SectionWithScroll>

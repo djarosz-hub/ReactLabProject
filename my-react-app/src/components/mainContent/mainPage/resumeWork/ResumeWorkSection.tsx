@@ -1,9 +1,9 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
 
-const WorkspacesSection: FC = () =>{
+const ResumeWorkSection: FC = () =>{
     return(
         <div></div>
     );
 };
-export default WorkspacesSection;
+export default ResumeWorkSection;

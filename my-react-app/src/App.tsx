@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 `;
 const Content = styled.div`
     width:1200px;
-    align-items: center;
     display: flex;
     background-color:#f8f8f8;
 `;
