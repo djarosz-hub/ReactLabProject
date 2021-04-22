@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import ExpandedMenu from "./ExpandedMenu";
 import useDropdown from "react-dropdown-hook";
+import { useLocation } from 'react-router-dom'
 
 const Wrapper = styled.div`
   width: 300px;
@@ -15,9 +16,10 @@ const ActualPageName = styled.div`
   margin: auto 0;
 `;
 const InnerWrapper = styled(Wrapper)`
-  width: 220px;
+  width: 210px;
   flex-direction:row;
   position:relative;
+  margin:5px 0;
 `;
 export const IconHolder = styled.div`
   width:40px;
@@ -32,8 +34,26 @@ const PageSelect: FC = () => {
     const menuHandler = () => {
         toggleDropdown();
     };
-    const closeMenu = () =>{
+    const location = useLocation();
+
+    const closeMenu = () => {
         closeDropdown();
+    }
+    const locationHandler = (path: string): string => {
+        switch (path) {
+            case "/":
+                return "Home";
+            case "/publications":
+                return "Publications";
+            case "/entities":
+                return "Entities";
+            case "/workspaces":
+                return "Workspaces";
+            case "/profile":
+                return "Profile";
+            default:
+                return "Main";
+        }
     }
     return (
         <Wrapper>
@@ -42,12 +62,12 @@ const PageSelect: FC = () => {
                     <IconHolder>
                         <img src="../../../icons/house2.png" alt="inSearchLogo" />
                     </IconHolder>
-                    <ActualPageName>Home</ActualPageName>
+                    <ActualPageName>{locationHandler(location.pathname)}</ActualPageName>
                     <IconHolder>
                         <img src="../../../icons/arrow-down.png" alt="arrowDropdown" />
                     </IconHolder>
                 </InnerWrapper>
-                {dropdownOpen && <ExpandedMenu closeDropMenu={closeMenu}/>}
+                {dropdownOpen && <ExpandedMenu closeDropMenu={closeMenu} />}
             </div>
         </Wrapper>
     );

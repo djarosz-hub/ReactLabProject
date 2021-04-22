@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const LatestPublications: FC = () =>{
     return(
         <Wrapper>
-            s
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla amet distinctio nisi quam cum et vitae minima itaque illo recusandae mollitia hic, eligendi, repellendus atque, esse odio! Repudiandae, maxime commodi.
         </Wrapper>
     );
 };

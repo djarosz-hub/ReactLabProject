@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MainSearch from "./MainSearch";
 import PageSelect from "./pageSelectSection/PageSelect";
 import IconHolder from "./IconHolder";
+import FakeIconHolder from "./FakeIconHolder";
 
 const Wrapper = styled.div`
     width: 1200px;
@@ -41,14 +42,17 @@ const MainHeader: FC = () => {
                 <IconHolder
                     source="../../../icons/house.png"
                     alt="houseLogo"
+                    linkTo="/"
                 />
-                <IconHolder
+                <FakeIconHolder
                     source="../../../icons/comments.png"
                     alt="commentsLogo"
+                    fakeNotCounter={5}
                 />
-                <IconHolder
+                <FakeIconHolder
                     source="../../../icons/bell.png"
                     alt="alertLogo"
+                    fakeNotCounter={10}
                 />
             </Icons>
         </Wrapper>
