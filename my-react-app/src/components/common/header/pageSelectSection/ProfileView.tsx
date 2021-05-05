@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import { IState } from '../../../../reducers';
+import { IPhotosReducer } from '../../../../reducers/photosReducers';
 
 const Wrapper = styled.div`
     width:100%;
@@ -16,10 +19,7 @@ const CustomLink = styled(Link)`
     margin-top:2px;
 `;
 
-const ProfileImg = styled.img.attrs({
-    src: "../../../trollface.png",
-    alt: "userPhoto",
-})`
+const ProfileImg = styled.img`
     padding:0 5px;
     max-width: 100%;
     max-height: 100%;
@@ -40,9 +40,12 @@ const ProfileView: FC<IProfileView> = (props) => {
     const optionClick = () => {
         props.closeDropMenu();
     }
+    const {photosList} = useSelector<IState, IPhotosReducer>(globalState=>({
+        ...globalState.photos
+    }));
     return (
         <Wrapper onClick={optionClick}>
-            <ProfileImg />
+            {photosList[0] && <ProfileImg src={photosList[0].url} alt={"userPhoto"}/>}
             <TextHolder>
                 {props.userName}
                 <CustomLink to={props.linkTo}>

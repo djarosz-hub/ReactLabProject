@@ -1,7 +1,10 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import PictureSection from './PictureSection';
 import YourLinksSection from './YourLinksSection';
+import { useSelector } from 'react-redux';
+import { IState } from '../../../reducers';
+import { IUsersReducer } from '../../../reducers/usersReducers';
 
 const Wrapper = styled.div`
     display:flex;
@@ -12,16 +15,20 @@ const Wrapper = styled.div`
     box-shadow: 0px 3px 4px #c5c5c5;
 `;
 
-const SidePanel: FC = () =>{
-    return(
+const SidePanel: FC = () => {
+    const { usersList} = useSelector<IState, IUsersReducer>(globalState => ({
+        ...globalState.users
+    }));
+    return (
         <Wrapper>
-            <PictureSection
-            name={"Jan Kowalski"}
-            picId={"2"}
-            jobTitle={"Job title"}
-            company={"Company"}
-            />
-            <YourLinksSection/>
+            {usersList[0] &&
+                <PictureSection
+                    name={usersList[0].name}
+                    picId={"2"}
+                    jobTitle={"Job title"}
+                    company={usersList[0].company.name}
+                />}
+            <YourLinksSection />
         </Wrapper>
     );
 };
