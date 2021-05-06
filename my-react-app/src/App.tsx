@@ -7,11 +7,11 @@ import MainPage from "./components/mainContent/mainPage/MainPage";
 import Entities from "./components/mainContent/entitiesPage/Entities";
 import Workspaces from "./components/mainContent/workspacesPage/Workspaces";
 import Profile from "./components/mainContent/profilePage/Profile";
-import {useDispatch} from 'react-redux';
-import {getUsers} from './actions/usersActions';
-import {getPhotos} from './actions/photosAction';
-import {getComments} from './actions/commentsAction';
-import {getPosts} from './actions/postsAction';
+import { useDispatch } from 'react-redux';
+import { getUsers } from './actions/usersActions';
+import { getPhotos } from './actions/photosAction';
+import { getComments } from './actions/commentsAction';
+import { getPosts } from './actions/postsAction';
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
@@ -32,7 +32,7 @@ const Content = styled.div`
 
 const App: FC = () => {
     const dispatch = useDispatch();
-    useEffect(()=>{
+    useEffect(() => {
         dispatch<GetUsers>(getUsers());
         dispatch<GetPhotos>(getPhotos());
         dispatch<GetComments>(getComments());

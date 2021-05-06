@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import SingleWorkspace from './SingleWorkspace';
+import Slider from 'react-slick';
+
 
 const Wrapper = styled.div`
     width:auto;
@@ -15,14 +17,25 @@ const Container = styled.div`
     display:flex;
 `;
 const WorkspacesSection: FC = () => {
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    };
+
     return (
         <Wrapper>
             <Header>Workspaces</Header>
             <Container>
-                <SingleWorkspace />
-                <SingleWorkspace />
-                <SingleWorkspace />
-                <SingleWorkspace />
+                {/* <Slider {...settings}> */}
+                    <SingleWorkspace />
+                    <SingleWorkspace />
+                    <SingleWorkspace />
+                    <SingleWorkspace />
+                {/* </Slider> */}
             </Container>
         </Wrapper>
     );
