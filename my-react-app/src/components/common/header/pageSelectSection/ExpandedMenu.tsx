@@ -12,6 +12,7 @@ const Menu = styled.div`
     border: 1px solid #a6a6a6;
     background-color:#f7f7f7;
     position:absolute;
+    font-size:12px;
 `;
 const Input = styled.input`
     border: 1px #a6a6a6 solid;

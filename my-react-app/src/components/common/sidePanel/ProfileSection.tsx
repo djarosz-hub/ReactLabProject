@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     margin:20px 20px 0 20px;
     border-radius:4px;
     background-color: #fff;
-    box-shadow: 0px 3px 4px #c5c5c5;
+    box-shadow: 0px 2px 7px #c5c5c5;
 `;
 
 const SidePanel: FC = () => {

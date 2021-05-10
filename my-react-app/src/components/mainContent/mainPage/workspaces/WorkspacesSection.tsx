@@ -11,31 +11,44 @@ const Wrapper = styled.div`
 const Header = styled.div`
     font-size:18px;
     padding-left:15px;
+    font-weight:1000;
     margin-bottom:10px;
 `;
 const Container = styled.div`
+    padding:5px 0;
+`;
+
+const CustomSlider = styled(Slider)`
     display:flex;
+    align-items:center;
+    width:100%;
+    overflow: hidden;
+    .slick-list{
+        height:210px;
+    }
 `;
 const WorkspacesSection: FC = () => {
 
     const settings = {
-        dots: true,
+        className: "center",
+        centerMode: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
-        slidesToScroll: 3
     };
 
     return (
         <Wrapper>
             <Header>Workspaces</Header>
             <Container>
-                {/* <Slider {...settings}> */}
-                    <SingleWorkspace />
-                    <SingleWorkspace />
-                    <SingleWorkspace />
-                    <SingleWorkspace />
-                {/* </Slider> */}
+                <CustomSlider {...settings}>
+                    <SingleWorkspace title={'Client contract'} iconUrl={'../../icons/publications.png'} alt={'publications'}/>
+                    <SingleWorkspace title={'Supplier contract'} iconUrl={'../../icons/people.png'} alt={'people'}/>
+                    <SingleWorkspace title={'Corporate'} iconUrl={'../../icons/entities.png'} alt={'entities'}/>
+                    <SingleWorkspace title={'Real estate contracts'} iconUrl={'../../icons/comments.png'} alt={'comments'}/>
+                    <SingleWorkspace title={'Group Norms'} iconUrl={'../../icons/ecosystem.png'} alt={'ecosystem'}/>
+                </CustomSlider>
             </Container>
         </Wrapper>
     );

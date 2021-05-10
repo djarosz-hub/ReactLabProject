@@ -37,6 +37,7 @@ const DirectionIcon = styled.div`
 const TextHolder = styled.span`
     margin-left:5px;
     width:135px;
+    font-size:14px;
 `;
 const YourLinksSection: FC = () => {
     return (

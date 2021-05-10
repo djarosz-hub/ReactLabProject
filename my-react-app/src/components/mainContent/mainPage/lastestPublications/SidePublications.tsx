@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const CustomLink = styled(Link)`
     text-decoration: none;
-    width:150px;
+    width:200px;
 `;
 
 const Wrapper = styled.div`
@@ -24,11 +24,15 @@ const Wrapper = styled.div`
 `;
 
 const TextHolder = styled.div`
-    width:150px;
+    width:200px;
     height:30px;
     display:flex;
     align-items:center;
     color: ${props => props.color};
+`;
+const BigTextHolder = styled(TextHolder)`
+    font-size:20px;
+    font-weight:1000;
 `;
 
 const SidePublications: FC = () => {
@@ -39,16 +43,16 @@ const SidePublications: FC = () => {
     }));
     return (
         <Wrapper>
-            <TextHolder
+            <BigTextHolder
                 color={"black"}
-            >Latest Publications</TextHolder>
+            >Latest Publications</BigTextHolder>
             {usersList &&
                 postsList &&
                 photosList &&
                 postsList?.slice(0, 3).map((post) =>
                     <SmallSidePublication
                         key={post.id}
-                        imgUrl={photosList?.[post.id]?.url}
+                        imgUrl={photosList?.[post.id]?.thumbnailUrl}
                         postBody={post.title}
                         userName={usersList?.[post.userId]?.name}
                         userPhotoUrl={photosList?.[post.id + 1]?.thumbnailUrl}

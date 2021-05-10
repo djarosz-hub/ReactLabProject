@@ -7,7 +7,6 @@ import ResumeWorkSection from "./resumeWork/ResumeWorkSection";
 const Wrapper = styled.div`
     width:880px;
     margin-top:20px;
-    min-height:800px;
 `;
 export default class MainPage extends React.Component {
     render() {

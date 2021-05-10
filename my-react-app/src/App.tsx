@@ -7,11 +7,14 @@ import MainPage from "./components/mainContent/mainPage/MainPage";
 import Entities from "./components/mainContent/entitiesPage/Entities";
 import Workspaces from "./components/mainContent/workspacesPage/Workspaces";
 import Profile from "./components/mainContent/profilePage/Profile";
+import NoMatch from "./components/mainContent/NoMatch";
 import { useDispatch } from 'react-redux';
 import { getUsers } from './actions/usersActions';
 import { getPhotos } from './actions/photosAction';
 import { getComments } from './actions/commentsAction';
 import { getPosts } from './actions/postsAction';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 type GetUsers = ReturnType<typeof getUsers>;
 type GetPhotos = ReturnType<typeof getPhotos>;
@@ -28,6 +31,8 @@ const Content = styled.div`
     width:1200px;
     display: flex;
     background-color:#f8f8f8;
+    min-height:900px;
+
 `;
 
 const App: FC = () => {
@@ -46,17 +51,20 @@ const App: FC = () => {
                 <Content>
                     <SidePanel />
                     <Switch>
-                        <Route path="/profile">
+                        <Route exact path="/profile">
                             <Profile />
                         </Route>
-                        <Route path="/workspaces">
+                        <Route exact path="/workspaces">
                             <Workspaces />
                         </Route>
-                        <Route path="/entities">
+                        <Route exact path="/entities">
                             <Entities />
                         </Route>
-                        <Route path="/">
+                        <Route exact path="/">
                             <MainPage />
+                        </Route>
+                        <Route exact path="*">
+                            <NoMatch/>
                         </Route>
                     </Switch>
                 </Content>

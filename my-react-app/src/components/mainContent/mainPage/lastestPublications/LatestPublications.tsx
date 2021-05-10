@@ -6,7 +6,7 @@ import SidePublications from './SidePublications';
 const Wrapper = styled.div`
     width:auto;
     border-radius:4px;
-    box-shadow: 0px 2px 2px #c5c5c5;
+    box-shadow: 0px 2px 7px #c5c5c5;
     margin-bottom:20px;
     display:flex;
     overflow:hidden;
