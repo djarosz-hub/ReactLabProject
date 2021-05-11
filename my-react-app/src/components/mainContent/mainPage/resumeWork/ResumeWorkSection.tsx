@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import FilterByTitle from './FilterByTitle';
 import Followed from './Followed';
+import CommentsPagination from '../../../common/CommentsPagination';
 
 const Wrapper = styled.div`
     display:flex;
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
 const HeaderSection = styled.div`
     display:flex;
     align-items:center;
+    padding:5px 0;
 `;
 const Title = styled.div`
     font-size:18px;
@@ -31,9 +33,12 @@ const ResumeWorkSection: FC = () => {
                     Resume your work
                 </Title>
                 <FilterByTitle
-                filterVal={(val:string) => filterHandler(val)}/>
-                <Followed/>
+                    filterVal={(val: string) => filterHandler(val)} />
+                <Followed />
             </HeaderSection>
+            <CommentsPagination
+                filterValue={filterValue}
+            />
         </Wrapper>
     );
 };

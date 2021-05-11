@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-paginate": "^7.1.0",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-slick": "^0.23.4"
   }

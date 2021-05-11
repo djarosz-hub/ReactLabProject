@@ -24,7 +24,6 @@ interface ISingleWorkspaceInfo {
 }
 const SingleWorkspaceInfo: FC<ISingleWorkspaceInfo> = (props) => {
     return (
-
         <Wrapper>
             <Icon src={props.iconUrl} alt={props.title} />
             <Text>{props.title}</Text>
@@ -34,7 +33,6 @@ const SingleWorkspaceInfo: FC<ISingleWorkspaceInfo> = (props) => {
                 {(Math.random() * 100).toFixed()} Users
             </Text>
         </Wrapper>
-
     );
 }
 export default SingleWorkspaceInfo;

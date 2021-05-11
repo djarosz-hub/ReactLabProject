@@ -6,7 +6,6 @@ import Slider from 'react-slick';
 
 const Wrapper = styled.div`
     width:auto;
-    margin-bottom:20px;
 `;
 const Header = styled.div`
     font-size:18px;

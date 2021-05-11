@@ -14,7 +14,8 @@ const NoMatch:FC = () => {
     return (
         <Wrapper>
             <h1>
-                Site with url <code>{location.pathname}</code> doesn't exists.
+                Strona testowa
+                <code>{location.pathname}</code>
             </h1>
         </Wrapper>
     );
