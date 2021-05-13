@@ -31,20 +31,20 @@ export const IconHolder = styled.div`
 
 const PageSelect: FC = () => {
     const [wrapperRef, dropdownOpen, toggleDropdown, closeDropdown] = useDropdown();
+    
     const menuHandler = () => {
         toggleDropdown();
     };
-    const location = useLocation();
 
     const closeMenu = () => {
         closeDropdown();
     }
+    const location = useLocation();
+
     const locationHandler = (path: string): string => {
         switch (path) {
             case "/":
                 return "Home";
-            case "/publications":
-                return "Publications";
             case "/entities":
                 return "Entities";
             case "/workspaces":
@@ -52,7 +52,7 @@ const PageSelect: FC = () => {
             case "/profile":
                 return "Profile";
             default:
-                return "Main";
+                return "Test";
         }
     }
     return (

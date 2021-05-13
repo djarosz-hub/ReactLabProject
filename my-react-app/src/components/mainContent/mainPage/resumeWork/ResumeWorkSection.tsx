@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import FilterByTitle from './FilterByTitle';
-import Followed from './Followed';
-import CommentsPagination from '../../../common/CommentsPagination';
+import Followed from '../../../common/pagination/Followed';
+import CommentsPagination from '../../../common/pagination/CommentsPagination';
 
+//#region styled
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -20,11 +21,17 @@ const Title = styled.div`
     font-weight:1000;
     width:200px;
 `;
+//#endregion
 
 const ResumeWorkSection: FC = () => {
     const [filterValue, setFitlerValue] = useState('');
+    const [myPostsOnly, setMyPostsOnly] = useState(false);
+
     const filterHandler = (val: string) => {
         setFitlerValue(val);
+    }
+    const myPostsHandler = (val: boolean) => {
+        setMyPostsOnly(val);
     }
     return (
         <Wrapper>
@@ -34,10 +41,13 @@ const ResumeWorkSection: FC = () => {
                 </Title>
                 <FilterByTitle
                     filterVal={(val: string) => filterHandler(val)} />
-                <Followed />
+                <Followed
+                    myPostsOnly={(val: boolean) => myPostsHandler(val)} 
+                    header={myPostsOnly}/>
             </HeaderSection>
             <CommentsPagination
                 filterValue={filterValue}
+                myPostsOnly={myPostsOnly}
             />
         </Wrapper>
     );
