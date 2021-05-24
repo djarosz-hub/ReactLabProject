@@ -14,6 +14,7 @@ const Wrapper = styled.div`
     margin-top:20px;
     background:white;
     color:#0a0aa5;
+    box-shadow: 0 2px 5px #c5c5c5;
 `;
 export const IconHolder = styled.div`
     width:40px;
