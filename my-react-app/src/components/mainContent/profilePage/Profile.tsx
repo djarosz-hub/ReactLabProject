@@ -6,6 +6,8 @@ import { IPhotosReducer } from '../../../reducers/photosReducers';
 import { IUsersReducer } from '../../../reducers/usersReducers';
 import PersonSection from './PersonSection';
 import AdditionalInfoSection from './AdditionalInfoSection';
+import PanelInfoSection from './PanelInfoSection';
+
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
@@ -13,7 +15,7 @@ const Wrapper = styled.div`
     width:880px;
     margin-top:20px;
     background:white;
-    color:#0a0aa5;
+    color:#080868;
     box-shadow: 0 2px 5px #c5c5c5;
 `;
 export const IconHolder = styled.div`
@@ -49,6 +51,7 @@ const Profile: FC = () => {
                 />
             }
             <AdditionalInfoSection />
+            {usersList && photosList && <PanelInfoSection users={usersList} photos={photosList}/>}
         </Wrapper>
     )
 
