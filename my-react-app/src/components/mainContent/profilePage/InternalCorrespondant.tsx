@@ -6,13 +6,16 @@ import { ISinglePhoto } from '../../../entities/photos';
 
 const Wrapper = styled.div`
     display:flex;
-    /* justify-content:center; */
     align-items:center;
     position:relative;
-    background:#eeeeee;
+    background:#f5f5f5;
     margin:1px 0;
 `;
-
+const UserWrapper = styled.div`
+    display:flex;
+    width:420px;
+    align-items:center;
+`;
 const UserImgHolder = styled.div`
     height:30px;
     width:30px;
@@ -26,20 +29,57 @@ const UserImg = styled.img`
 const UserName = styled.span`
     font-weight:bold;
 `;
-
+const InfoWrapper = styled.div`
+    display:flex;
+    justify-content:flex-end;
+    width:420px;
+`;
+const InfoHolder = styled.div`
+    display:flex;
+    align-items:center;
+    margin-right:20px;
+`;
+const DeleteBtn = styled.button`
+    width:60px;
+    height:20px;
+    position:absolute;
+    top:calc(50% - 10px);
+    left:calc(50% - 30px);
+`;
 interface IInternalCorrespondant {
     user: ISingleUser;
     photo: ISinglePhoto;
+    editableNow: boolean;
+    deleteInternalCorr(userName: string): void;
 }
 
 const InternalCorrespondant: FC<IInternalCorrespondant> = (props) => {
     return (
         <Wrapper>
-            <UserImgHolder>
-                <UserImg src={props.photo.url} alt='userImg' />
-            </UserImgHolder>
-            <UserName>{props.user.name}</UserName>
-        </Wrapper>
+            <UserWrapper>
+                <UserImgHolder>
+                    <UserImg src={props.photo?.url} alt='userImg' />
+                </UserImgHolder>
+                <UserName>{props.user?.name}</UserName>
+            </UserWrapper>
+            {props.editableNow &&
+                <DeleteBtn onClick={() => props.deleteInternalCorr(props.user.name)}>Delete</DeleteBtn>
+            }
+            <InfoWrapper>
+                <InfoHolder>
+                    <IconHolder>
+                        <img src='../../../icons/comments.png' alt='comIcon' />
+                    </IconHolder>
+                Message
+            </InfoHolder>
+                <InfoHolder>
+                    <IconHolder>
+                        <img src='../../../icons/user-plus.png' alt='userPlusIcon' />
+                    </IconHolder>
+                Profile
+            </InfoHolder>
+            </InfoWrapper>
+        </Wrapper >
     );
 }
 export default InternalCorrespondant;

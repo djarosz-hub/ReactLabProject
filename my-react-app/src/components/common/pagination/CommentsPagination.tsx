@@ -35,6 +35,8 @@ const Wrapper = styled.div`
 interface ICommentsPagination {
     filterValue: string;
     myPostsOnly: boolean;
+    currentPage:number;
+    setCurrentPage(val:number):void;
 }
 
 const CommentsPagination: FC<ICommentsPagination> = (props) => {
@@ -45,7 +47,6 @@ const CommentsPagination: FC<ICommentsPagination> = (props) => {
         ...globalState.posts,
         ...globalState.comments
     }));
-    const [currentPage, setCurrentPage] = useState(0);
     const [filterValue, setFilterValue] = useState('');
     const [myPostsOnly, setMyPostsOnly] = useState(false);
     const [forcedFirstPage, setForcedPage] = useState(0);
@@ -73,12 +74,12 @@ const CommentsPagination: FC<ICommentsPagination> = (props) => {
     
     const handlePageClick = (data: any) => {
         let selected = data.selected;
-        setCurrentPage(selected * 10)
+        props.setCurrentPage(selected * 10)
     };
     return (
         <Wrapper>
             <div className="commentBox">
-                {filteredComments.slice(currentPage, currentPage + 10).map((comment, index) => {
+                {filteredComments.slice(props.currentPage, props.currentPage + 10).map((comment, index) => {
                     return <SingleComment
                         key={index}
                         title={comment.name}

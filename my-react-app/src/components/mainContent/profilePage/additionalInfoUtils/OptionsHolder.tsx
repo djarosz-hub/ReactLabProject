@@ -21,17 +21,20 @@ const Select = styled.select`
 `;
 const OptionsHolder: FC<IOptionsHolder> = (props) => {
 
-    const availableOptions = props.allOptions.filter(el => !props.selectedOptions.includes(el));
-    
-    // const selectedOptions = props.selectedOptions.forEach(el => {
-    //     if ()
-    // });
+    const [availableOptions, setAvailableOptions] = useState<string[]>();
+    useEffect(() => {
+        console.log('a', props.selectedOptions)
+        setAvailableOptions(props.allOptions.filter(el => !props.selectedOptions.includes(el)));
+        console.log(props.selectedOptions)
+    }, [props])
+
     const AddOption = (id: string) => {
         const element = document.getElementById(id) as HTMLOptionElement;
         if (element == null || element.value === '')
             return;
         const newValues = props.selectedOptions;
         newValues.push(element.value);
+        console.log(newValues)
         props.setValues(newValues);
     }
     const deleteOption = (val: string) => {
@@ -41,9 +44,10 @@ const OptionsHolder: FC<IOptionsHolder> = (props) => {
     }
     return (
         <Wrapper>
+            {console.log(props.selectedOptions)}
             {props.selectedOptions.map((el, index) => <InfoOption key={index} text={el} editable={props.editable} delete={deleteOption} />)}
             {props.editable && <div><Select id={props.id}>
-                {availableOptions.map((el, index) => <option key={index} value={el}>{el}</option>)}
+                {availableOptions?.map((el, index) => <option key={index} value={el}>{el}</option>)}
             </Select>
                 <button onClick={() => AddOption(props.id)}>Add</button>
             </div>}

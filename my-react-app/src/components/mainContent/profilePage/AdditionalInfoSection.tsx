@@ -29,6 +29,10 @@ const AdditionalInfoSection: FC = () => {
     const [specialtiesList, setSpecialtiesList] = useState([specialties[0]]);
     const [countiesList, setCountiesList] = useState([counties[0]]);
 
+    const test = (param: string[]) => {
+        console.log({param})
+        setExpertiseList(param)
+    }
     return (
         <Wrapper>
             <Title>
@@ -37,12 +41,13 @@ const AdditionalInfoSection: FC = () => {
                 </EditIconHolder>
                 Expertise
             </Title>
+            {console.log({expertiseList})}
             <OptionsHolder
                 id={'expertise'}
                 selectedOptions={expertiseList}
                 allOptions={expertise}
                 editable={editableNow}
-                setValues={setExpertiseList}
+                setValues={test}
             />
             <Title>Specialties</Title>
             <OptionsHolder

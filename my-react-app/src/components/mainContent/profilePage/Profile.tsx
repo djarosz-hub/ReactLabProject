@@ -51,7 +51,7 @@ const Profile: FC = () => {
                 />
             }
             <AdditionalInfoSection />
-            {usersList && photosList && <PanelInfoSection users={usersList} photos={photosList}/>}
+            {usersList.length === 10 && photosList && <PanelInfoSection users={usersList} photos={photosList} />}
         </Wrapper>
     )
 
