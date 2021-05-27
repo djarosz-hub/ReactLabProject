@@ -42,9 +42,6 @@ const InfoHolder = styled.div`
 const DeleteBtn = styled.button`
     width:60px;
     height:20px;
-    position:absolute;
-    top:calc(50% - 10px);
-    left:calc(50% - 30px);
 `;
 interface IInternalCorrespondant {
     user: ISingleUser;
@@ -62,10 +59,10 @@ const InternalCorrespondant: FC<IInternalCorrespondant> = (props) => {
                 </UserImgHolder>
                 <UserName>{props.user?.name}</UserName>
             </UserWrapper>
-            {props.editableNow &&
-                <DeleteBtn onClick={() => props.deleteInternalCorr(props.user.name)}>Delete</DeleteBtn>
-            }
             <InfoWrapper>
+                {props.editableNow &&
+                    <DeleteBtn onClick={() => props.deleteInternalCorr(props.user.name)}>Delete</DeleteBtn>
+                }
                 <InfoHolder>
                     <IconHolder>
                         <img src='../../../icons/comments.png' alt='comIcon' />

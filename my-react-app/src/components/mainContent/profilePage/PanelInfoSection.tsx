@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState, useEffect } from 'react';
+import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import styled from 'styled-components';
 import { ISingleUser } from '../../../entities/users';
 import { ISinglePhoto } from '../../../entities/photos';
@@ -53,7 +53,11 @@ const Select = styled.select`
 `;
 const LongerSelect = styled(Select)`
     width:150px;
-    margin-left:20px;
+    margin:0 10px;
+`;
+const AddBtn = styled.button`
+    width:60px;
+    height:20px;
 `;
 
 interface IPanelInfoSeciton {
@@ -70,10 +74,17 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
     const [termsCondInterval, setTermsCondInterval] = useState(wageInterval[1]);
     const [termsCondWage, setTermsCondWage] = useState(10);
     const allInternalCorrList = props.users.slice(1, props.users.length);
+    const [selectedInternalCorrList, setSelectedInternalCorrList] = useState<ISingleUser[]>([allInternalCorrList[0], allInternalCorrList[1]]);
+    const filterInternalCorrOptions = (): ISingleUser[] => {
+        const filteredList: ISingleUser[] = [];
+        allInternalCorrList.forEach(user => {
+            if (!selectedInternalCorrList.find(el => el.name === user.name))
+                filteredList.push(user);
+        });
+        return filteredList;
+    }
+    const [internalCorrOptionsList, setInternalCorrOptionsList] = useState<ISingleUser[]>(filterInternalCorrOptions());
 
-    // useEffect(()=>{
-    //     setTermsCondUser(props.users[1]?.name)
-    // }, props.users)
     const wageEditHandler = (val: string, setFunc: Dispatch<SetStateAction<number>>, title: string) => {
         if (isNaN(+val))
             return alert(`${title} wage must be number`);
@@ -98,9 +109,23 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
         if (termCondUser != null)
             setTermsCondUser(termCondUser.value);
     }
-    const refreshInternalCorrList = (userToDel: string) => {
-        console.log(userToDel)
+    const addInternalCorr = () => {
+        const corrToAdd = document.getElementById('internalCorrSelect') as HTMLOptionElement;
+        if (corrToAdd != null) {
+            const newUsersList = [...selectedInternalCorrList];
+            const user = allInternalCorrList.find(el => el.name === corrToAdd.value);
+            if (user !== undefined) {
+                newUsersList.push(user);
+                setSelectedInternalCorrList(newUsersList);
+            }
+        }
     }
+    const removeInternalCorr = (userToDelete: string) => {
+        const newUsersList = selectedInternalCorrList.filter(user => user.name !== userToDelete);
+        setSelectedInternalCorrList(newUsersList);
+        setInternalCorrOptionsList(filterInternalCorrOptions());
+    }
+
     return (
         <Wrapper>
             <BoldTitle>
@@ -147,22 +172,22 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
                 </InfoHolder>}
             <InternalsEditHolder>
                 <BoldTitle>Internal correspondants</BoldTitle>
-                <LongerSelect>
-                    {allInternalCorrList.map((user, index) => <option key={index} value={user.name}>{user.name}</option>)}
-                </LongerSelect>
+                {editableNow &&
+                    <div>
+                        <LongerSelect id='internalCorrSelect'>
+                            {internalCorrOptionsList.map((user, index) => <option key={index} value={user.name}>{user.name}</option>)}
+                        </LongerSelect>
+                        <AddBtn onClick={addInternalCorr}>Add</AddBtn>
+                    </div>}
             </InternalsEditHolder>
-            <InternalCorrespondant
-                user={props.users[0]}
-                photo={props.photos[0]}
-                editableNow={editableNow}
-                deleteInternalCorr={refreshInternalCorrList}
-            />
-            <InternalCorrespondant
-                user={props.users[1]}
-                photo={props.photos[1]}
-                editableNow={editableNow}
-                deleteInternalCorr={refreshInternalCorrList}
-            />
+            {selectedInternalCorrList.map(user =>
+                <InternalCorrespondant
+                    key={user.id}
+                    user={user}
+                    photo={props.photos.find(photo => photo.id === user.id) || props.photos[0]}
+                    editableNow={editableNow}
+                    deleteInternalCorr={removeInternalCorr}
+                />)}
         </Wrapper>
     )
 }
