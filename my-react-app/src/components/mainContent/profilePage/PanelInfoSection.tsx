@@ -4,6 +4,7 @@ import { ISingleUser } from '../../../entities/users';
 import { ISinglePhoto } from '../../../entities/photos';
 import { EditIconHolder } from './Profile';
 import InternalCorrespondant from './InternalCorrespondant';
+import FilesAttacher from './FilesAttacher';
 
 const Wrapper = styled.div`
     display:flex;
@@ -171,6 +172,8 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
                 <InfoHolder>
                     {termsCondInterval} {termsCondWage}k&euro; retainer - see with&nbsp;{termsCondUser}
                 </InfoHolder>}
+            <FilesAttacher
+            editableNow={editableNow}/>
             <BoldTitle>Services &amp; projects</BoldTitle>
 
             {editableNow ?
