@@ -30,7 +30,7 @@ const AdditionalInfoSection: FC = () => {
     const [countiesList, setCountiesList] = useState([counties[0]]);
 
     const test = (param: string[]) => {
-        console.log({param})
+        // console.log({param})
         setExpertiseList(param)
     }
     return (
@@ -41,7 +41,7 @@ const AdditionalInfoSection: FC = () => {
                 </EditIconHolder>
                 Expertise
             </Title>
-            {console.log({expertiseList})}
+            {/* {console.log({expertiseList})} */}
             <OptionsHolder
                 id={'expertise'}
                 selectedOptions={expertiseList}
