@@ -11,6 +11,7 @@ const SingleLink = styled.div`
     align-items:center;
     margin:5px;
     font-size:17px;
+    padding:5px;
 `;
 const IconHolder = styled.div`
     display:flex;

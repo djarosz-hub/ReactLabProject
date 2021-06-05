@@ -5,12 +5,12 @@ import CommentInfo from './CommentInfo';
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
-    width:880px;
     box-shadow: 0 2px 5px #c5c5c5;
     border-radius:4px;
     margin-bottom:10px;
     padding:0 15px;
     box-sizing:border-box;
+    background:white;
 `;
 const Title = styled.div`
     font-size:20px;

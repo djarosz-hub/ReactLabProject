@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width: 500px;
     display:flex;
     justify-content:flex-end;
     margin-right:30px;

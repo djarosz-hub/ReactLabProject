@@ -5,7 +5,7 @@ const MainWrapper = styled.div`
     display:flex;
     flex-direction:column;
     padding:10px 20px;
-    width:880px;
+    /* width:1200px; */
     box-sizing:border-box;
     align-items:flex-end;
     border:1px solid #e4e3e3;
@@ -26,7 +26,7 @@ const TopDescription = styled.div`
 
 //#region pic section
 const PicWrapper = styled.div`
-    width:130px;
+    width:160px;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -49,7 +49,6 @@ const InfoWrapper = styled.div`
     display:flex;
 `;
 const MainInfo = styled.div`
-    width:710px;
     position:relative;
     display:flex;
     justify-content:space-between;
@@ -57,9 +56,10 @@ const MainInfo = styled.div`
 const InfoSection = styled.div`
     display:flex;
     flex-direction:column;
-    width:350px;
+    width:500px;
     justify-content:flex-end;
     padding:10px;
+    box-sizing:border-box;
 `;
 
 const InfoHolder = styled.div`
@@ -73,7 +73,7 @@ const BoldInfoHolder = styled(InfoHolder)`
     font-weight:bold;
 `;
 const EditInfoHolder = styled.input`
-    width:250px;
+    width:400px;
     height:25px;
     box-sizing:border-box;
 `;

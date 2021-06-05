@@ -12,6 +12,7 @@ const Header = styled.div`
     padding-left:15px;
     font-weight:1000;
     margin-bottom:10px;
+    color: #111769;
 `;
 const Container = styled.div`
     padding:5px 0;
@@ -29,12 +30,11 @@ const CustomSlider = styled(Slider)`
 const WorkspacesSection: FC = () => {
 
     const settings = {
-        className: "center",
         centerMode: true,
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
     };
 
     return (

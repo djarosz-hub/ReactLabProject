@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     display:flex;
     align-items:center;
+    font-weight:400;
 `;
 const IconHolder = styled.div`
     width:20px;

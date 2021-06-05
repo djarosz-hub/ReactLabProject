@@ -13,7 +13,7 @@ import { getUsers } from './actions/usersActions';
 import { getPhotos } from './actions/photosAction';
 import { getComments } from './actions/commentsAction';
 import { getPosts } from './actions/postsAction';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 type GetUsers = ReturnType<typeof getUsers>;
@@ -22,17 +22,18 @@ type GetComments = ReturnType<typeof getComments>;
 type GetPosts = ReturnType<typeof getPosts>;
 
 const Wrapper = styled.div`
-    justify-content: center;
-    align-items: center;
     display: flex;
     flex-direction: column;
 `;
-const Content = styled.div`
-    width:1200px;
-    display: flex;
+const ContentWrapper = styled.div`
+    display:flex;
     background-color:#f8f8f8;
+`;
+const Content = styled.div`
+    width:100%;
+    display: flex;
     min-height:900px;
-
+    justify-content:center;
 `;
 
 const App: FC = () => {
@@ -48,26 +49,28 @@ const App: FC = () => {
         <Router>
             <Wrapper>
                 <MainHeader />
-                <Content>
+                <ContentWrapper>
                     <SidePanel />
-                    <Switch>
-                        <Route exact path="/profile">
-                            <Profile />
-                        </Route>
-                        <Route exact path="/workspaces">
-                            <Workspaces />
-                        </Route>
-                        <Route exact path="/entities">
-                            <Entities />
-                        </Route>
-                        <Route exact path="/">
-                            <MainPage />
-                        </Route>
-                        <Route exact path="*">
-                            <NoMatch/>
-                        </Route>
-                    </Switch>
-                </Content>
+                    <Content>
+                        <Switch>
+                            <Route exact path="/profile">
+                                <Profile />
+                            </Route>
+                            <Route exact path="/workspaces">
+                                <Workspaces />
+                            </Route>
+                            <Route exact path="/entities">
+                                <Entities />
+                            </Route>
+                            <Route exact path="/">
+                                <MainPage />
+                            </Route>
+                            <Route exact path="*">
+                                <NoMatch />
+                            </Route>
+                        </Switch>
+                    </Content>
+                </ContentWrapper>
             </Wrapper>
         </Router>
     );

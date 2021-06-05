@@ -4,7 +4,7 @@ import InfoOption from './InfoOption';
 
 const Wrapper = styled.div`
     display:flex;
-    width:600px;
+    width:auto;
     flex-wrap:wrap;
     margin-bottom:15px;
 `;

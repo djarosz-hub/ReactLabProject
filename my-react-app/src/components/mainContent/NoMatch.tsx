@@ -7,7 +7,6 @@ const Wrapper = styled.div`
     justify-content:center;
     align-items:center;
     font-size:30px;
-    width:880px;
 `;
 const NoMatch:FC = () => {
     let location = useLocation();

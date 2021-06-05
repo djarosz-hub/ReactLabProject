@@ -10,18 +10,12 @@ const Wrapper = styled.div`
     width:250px;
     border-radius:5px;
     box-shadow: 0px 2px 3px #c5c5c5;
-    background-color:yellow;
     height:200px;
     display:flex;
     flex-direction:column;
     position:relative;
     overflow:hidden;
 `;
-interface ISingleWorkspace {
-    title: string;
-    iconUrl: string;
-    alt: string;
-}
 const PhotoContainer = styled.div`
     height:80px;
     width:100%;
@@ -44,7 +38,7 @@ const MiddleImgContainer = styled.div`
     z-index:2;
     border-radius:4px;
     box-shadow: 0 1px 5px #c5c5c5;
-    background:whitesmoke;
+    background:white;
 `;
 const BigIconHolder = styled.div`
     height:45px;
@@ -68,7 +62,7 @@ const Title = styled.div`
 `;
 const TextContainer = styled.div`
     height:100px;
-    background:whitesmoke;
+    background:white;
     display:flex;
     flex-direction:column-reverse;
     font-size:14px;
@@ -78,14 +72,19 @@ const UpdateInfo = styled.div`
     font-size:11px;
     padding-top:10px;
 `;
+interface ISingleWorkspace {
+    title: string;
+    iconUrl: string;
+    alt: string;
+}
 const SingleWorkspace: FC<ISingleWorkspace> = (props) => {
     const { photosList } = useSelector<IState, IPhotosReducer>(globalState => ({
         ...globalState.photos
     }));
 
-    const nameHandler = (name:string) => {
-        let nameSplit:string[] = name.split(' ');
-        nameSplit = nameSplit.map(el=>el[0].toUpperCase() + el.substring(1, el.length));
+    const nameHandler = (name: string) => {
+        let nameSplit: string[] = name.split(' ');
+        nameSplit = nameSplit.map(el => el[0].toUpperCase() + el.substring(1, el.length));
         return nameSplit.length > 1 ? nameSplit[1] : nameSplit[0];
     }
     return (
@@ -103,7 +102,7 @@ const SingleWorkspace: FC<ISingleWorkspace> = (props) => {
             </Title>
             <TextContainer>
                 <UpdateInfo>
-                    Last updated {(Math.random()*10).toFixed()} days ago
+                    Last updated {(Math.random() * 10).toFixed()} days ago
                 </UpdateInfo>
                 <SingleWorkspaceInfo
                     iconUrl={props.iconUrl}

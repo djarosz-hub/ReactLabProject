@@ -32,7 +32,7 @@ const UserName = styled.span`
 const InfoWrapper = styled.div`
     display:flex;
     justify-content:flex-end;
-    width:420px;
+    width:100%;
 `;
 const InfoHolder = styled.div`
     display:flex;

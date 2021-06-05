@@ -8,16 +8,15 @@ const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
     padding:10px 20px;
-    width:880px;
+    width:100%;
     box-sizing:border-box;
-    border:1px solid #e4e3e3;
-    border-top:none;
+    border-bottom:1px solid #e4e3e3;
     position:relative;
 `;
 const Title = styled.div`
     height:20px;
     position:relative;
-    padding:5px;
+    padding:5px 0;
     font-weight:500;
     color:#9e9e9e;
 `;

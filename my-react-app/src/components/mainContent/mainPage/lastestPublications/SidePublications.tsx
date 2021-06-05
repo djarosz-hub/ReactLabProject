@@ -14,8 +14,7 @@ const CustomLink = styled(Link)`
 `;
 
 const Wrapper = styled.div`
-    width:580px;
-    /* background:green; */
+    width:100%;
     padding:0 10px;
     box-sizing:border-box;
     color:white;
@@ -29,10 +28,10 @@ const TextHolder = styled.div`
     display:flex;
     align-items:center;
     color: ${props => props.color};
+    font-weight:1000;
 `;
 const BigTextHolder = styled(TextHolder)`
     font-size:20px;
-    font-weight:1000;
 `;
 
 const SidePublications: FC = () => {
@@ -44,7 +43,7 @@ const SidePublications: FC = () => {
     return (
         <Wrapper>
             <BigTextHolder
-                color={"black"}
+                color={"#20317a"}
             >Latest Publications</BigTextHolder>
             {usersList &&
                 postsList &&
@@ -58,7 +57,7 @@ const SidePublications: FC = () => {
                         userPhotoUrl={photosList?.[post.id + 1]?.thumbnailUrl}
                     />)}
             <CustomLink to={"/publications"}>
-                <TextHolder color={"blue"}>See more publications</TextHolder>
+                <TextHolder color={"#2a44bb"}>See more publications</TextHolder>
             </CustomLink>
         </Wrapper>
     );

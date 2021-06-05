@@ -7,12 +7,14 @@ import { IUsersReducer } from '../../../reducers/usersReducers';
 import PersonSection from './PersonSection';
 import AdditionalInfoSection from './AdditionalInfoSection';
 import PanelInfoSection from './PanelInfoSection';
+import InternalReviewsSection from './InternalReviewsSection';
+import ProposalsSection from './ProposalsSection';
 
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
     align-items:center;
-    width:880px;
+    max-width:1200px;
     margin-top:20px;
     background:white;
     color:#080868;
@@ -52,6 +54,7 @@ const Profile: FC = () => {
             }
             <AdditionalInfoSection />
             {usersList.length && photosList.length && <PanelInfoSection users={usersList} photos={photosList} />}
+            <InternalReviewsSection/>
         </Wrapper>
     )
 

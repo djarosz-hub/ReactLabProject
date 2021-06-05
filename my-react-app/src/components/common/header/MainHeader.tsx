@@ -6,10 +6,11 @@ import IconHolder from "./IconHolder";
 import FakeIconHolder from "./FakeIconHolder";
 
 const Wrapper = styled.div`
-    width: 1200px;
+    width: 100%;
     height: 50px;
-    align-items: center;
     display: flex;
+    align-items: center;
+    justify-content:space-between;
     box-shadow: -0px 5px 5px #c5c5c5;
     z-index:1000;
 `;
@@ -28,15 +29,20 @@ const Icons = styled.div`
     padding-right:10px;
     box-sizing:border-box;
 `;
-
+const LogoAndSelectHolder = styled.div`
+    display:flex;
+    align-items:center;
+`;
 const MainHeader: FC = () => {
 
     return (
         <Wrapper>
-            <HeaderLogo>
-                <img src="../../../icons/ecosystem.png" alt="headerLogo" />
-            </HeaderLogo>
-            <PageSelect />
+            <LogoAndSelectHolder>
+                <HeaderLogo>
+                    <img src="../../../icons/ecosystem.png" alt="headerLogo" />
+                </HeaderLogo>
+                <PageSelect />
+            </LogoAndSelectHolder>
             <MainSearch />
             <Icons>
                 <IconHolder

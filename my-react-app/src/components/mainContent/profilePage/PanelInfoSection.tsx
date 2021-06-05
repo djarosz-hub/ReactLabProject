@@ -9,11 +9,10 @@ import FilesAttacher from './FilesAttacher';
 const Wrapper = styled.div`
     display:flex;
     flex-direction:column;
-    padding:10px 20px;
-    width:880px;
+    padding:20px 20px;
+    width:100%;
     box-sizing:border-box;
-    border:1px solid #e4e3e3;
-    border-top:none;
+    border-bottom:1px solid #e4e3e3;
     position:relative;
 `;
 
@@ -37,7 +36,7 @@ const InfoHolder = styled.div`
     overflow:hidden;
 `;
 const EditInfoHolder = styled.input`
-    width:300px;
+    width:450px;
     height:25px;
     box-sizing:border-box;
 `;

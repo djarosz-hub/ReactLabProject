@@ -10,7 +10,8 @@ const Wrapper = styled.div`
     border-radius:3px;
     font-size:15px;
     padding:5px 30px;
-    margin:3px 5px;
+    margin:3px 0;
+    margin-right:7px;
     position:relative;
 `;
 const DeleteButton = styled.div`

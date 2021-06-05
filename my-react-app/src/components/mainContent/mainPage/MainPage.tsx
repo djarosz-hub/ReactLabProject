@@ -5,7 +5,7 @@ import WorkspacesSection from "./workspaces/WorkspacesSection";
 import ResumeWorkSection from "./resumeWork/ResumeWorkSection";
 
 const Wrapper = styled.div`
-    width:880px;
+    max-width:1200px;
     margin-top:20px;
 `;
 export default class MainPage extends React.Component {

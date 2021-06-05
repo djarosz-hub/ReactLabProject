@@ -8,7 +8,6 @@ const CustomLink = styled(Link)`
 `;
 const Wrapper = styled.div`
     display:flex;
-    width:100%;
     box-sizing:border-box;
 `;
 const ImgHolder = styled.div`
@@ -24,8 +23,9 @@ const Img = styled.img`
 
 const TextHolder = styled.div`
     width:100%;
-    color: black;
+    color: #141c94;
     display:flex;
+    font-weight:bold;
     flex-direction:column;
     justify-content:space-around;
 `;
