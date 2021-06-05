@@ -9,6 +9,7 @@ import AdditionalInfoSection from './AdditionalInfoSection';
 import PanelInfoSection from './PanelInfoSection';
 import InternalReviewsSection from './InternalReviewsSection';
 import ProposalsSection from './ProposalsSection';
+import AmountOfFees from './AmountOfFeesSection';
 
 const Wrapper = styled.div`
     display:flex;
@@ -56,6 +57,7 @@ const Profile: FC = () => {
             {usersList.length && photosList.length && <PanelInfoSection users={usersList} photos={photosList} />}
             <ProposalsSection/>
             <InternalReviewsSection/>
+            <AmountOfFees/>
         </Wrapper>
     )
 

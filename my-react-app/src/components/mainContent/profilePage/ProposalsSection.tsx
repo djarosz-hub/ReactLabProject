@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { EditIconHolder } from './Profile';
-import ReviewsTable from './tables/ReviewsTable';
+import ReviewsTable from './tables/reviews/ReviewsTable';
 
 const Wrapper = styled.div`
     display:flex;
