@@ -25,6 +25,8 @@ const Title = styled.div`
     margin-top:10px;
 `;
 const BoldTitle = styled(Title)`
+    margin:0;
+    padding-top:10px;
     font-weight:bold;
     color:inherit;
 `;
