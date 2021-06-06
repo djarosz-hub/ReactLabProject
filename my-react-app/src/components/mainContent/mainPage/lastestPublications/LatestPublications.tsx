@@ -9,6 +9,7 @@ const Wrapper = styled.div`
     margin-bottom:20px;
     display:flex;
     background:white;
+    overflow:hidden;
 `;
 
 const LatestPublications: FC = () => {

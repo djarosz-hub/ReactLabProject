@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import styled from 'styled-components';
-import FilterByTitle from './FilterByTitle';
+import FilterByTitle from '../../../common/pagination/FilterByTitle';
 import Followed from '../../../common/pagination/Followed';
 import CommentsPagination from '../../../common/pagination/CommentsPagination';
 
