@@ -1,13 +1,17 @@
-import React from "react";
-import styled from "styled-components";
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    width:880px;
+    max-width:1200px;
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
 `;
-export default class Entities extends React.Component {
-    render() {
-        return (
-            <Wrapper>entitsy</Wrapper>
-        )
-    }
+
+const Entities:FC = () => {
+    return (
+        <Wrapper>
+        </Wrapper>
+    );
 }
+export default Entities;
