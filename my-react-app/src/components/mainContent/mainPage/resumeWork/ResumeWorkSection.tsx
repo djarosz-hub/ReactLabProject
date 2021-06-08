@@ -51,11 +51,11 @@ const ResumeWorkSection: FC = () => {
                     Resume your work
                 </Title>
                 <FilterContainer>
-                <FilterByTitle
-                    filterVal={(val: string) => filterHandler(val)} />
-                <Followed
-                    myPostsOnly={(val: boolean) => myPostsHandler(val)} 
-                    header={myPostsOnly}/>
+                    <FilterByTitle
+                        filterVal={(val: string) => filterHandler(val)} />
+                    <Followed
+                        myPostsOnly={(val: boolean) => myPostsHandler(val)}
+                        header={myPostsOnly} />
                 </FilterContainer>
             </HeaderSection>
             <CommentsPagination

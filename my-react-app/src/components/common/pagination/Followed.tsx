@@ -43,7 +43,7 @@ const Followed: FC<IFollowed> = (props) => {
                 <TextWrapper onClick={menuHandler}>
                     {props.header? 'My posts' : 'All posts'}
                     <IconHolder>
-                        <img src="../../../icons/arrow-down.png" alt="arrowDropdown" />
+                        <img src="icons/arrow-down.png" alt="arrowDropdown" />
                     </IconHolder>
                 </TextWrapper>
                 {dropdownOpen && <ExpandedMenu 

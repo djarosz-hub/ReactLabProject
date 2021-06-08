@@ -33,19 +33,19 @@ const SearchIcon = styled.div`
     align-items:center;
     background:white;
 `;
-interface IFilterByTitle{
-    filterVal(val:string):void;
+interface IFilterByTitle {
+    filterVal(val: string): void;
 }
 const FilterByTitle: FC<IFilterByTitle> = (props) => {
 
     return (
         <Wrapper>
             <InputWrapper>
-                <Input 
-                onChange={(e) => props.filterVal(e.target.value)}
-                placeholder="Filter by title..." />
+                <Input
+                    onChange={(e) => props.filterVal(e.target.value)}
+                    placeholder="Filter by title..." />
                 <SearchIcon>
-                    <img src="../../../icons/search.png" alt="searchIcon" />
+                    <img src="icons/search.png" alt="searchIcon" />
                 </SearchIcon>
             </InputWrapper>
         </Wrapper>

@@ -10,7 +10,6 @@ const Wrapper = styled.div`
     align-items:center;
     max-width:1200px;
     margin-top:20px;
-    background:white;
 `;
 const Workspaces:FC = (props) =>{
     return(

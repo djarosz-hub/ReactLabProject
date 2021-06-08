@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     flex-direction:column;
     max-width:1200px;
     background:white;
-    box-shadow:0 2px 3px #b4b4b4;
+    box-shadow:0 2px 3px #d3d1d1;
     border: 1px solid #b4b4b4;
     overflow:hidden;
     border-radius:4px;
