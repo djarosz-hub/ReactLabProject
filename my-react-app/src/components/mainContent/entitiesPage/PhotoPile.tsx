@@ -7,26 +7,29 @@ type WrapperContainer = {
 const Wrapper = styled.div<WrapperContainer>`
     display:flex;
     width:auto;
-    width: ${props => props.isMosaic ? 350 + "px" : 700 + "px"};
+    width: ${props => props.isMosaic ? 350 + "px" : 900 + "px"};
     box-sizing:border-box;
     padding:10px;
     background:white;
     border-radius:5px;
-    box-shadow: 0 2px 3px #c0c0c0;
+    box-shadow: 0 2px 5px #c5c5c5;
+    margin:5px;
+    align-items:center;
 `;
 
 const TextHolder = styled.div`
     display:flex;
     flex-direction:column;
     width:100%;
-    font-size:15px;
+    font-size:13px;
     color:#b9b9b9;
     justify-content:space-between;
-    padding:5px;
+    height:100%;
+    box-sizing:border-box;
 `;
 const Title = styled.div`
-
-    font-size:18px;
+    font-size:17px;
+    font-weight:bold;
     color:#0c0e74;
 `;
 
