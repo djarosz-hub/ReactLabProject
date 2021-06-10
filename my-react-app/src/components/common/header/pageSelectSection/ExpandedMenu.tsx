@@ -4,6 +4,7 @@ import AccountMenuSection from "./AccountMenuSection";
 import MenuSection, { IMenuSection } from "./MenuSection";
 import Logout from "./Logout";
 import { IMenuOption } from "./MenuOption";
+import WorkspaceMenuSection, { IWorkspaceMenuSection } from "./WorkspaceMenuSection";
 
 const Menu = styled.div`
     display: flex;
@@ -105,35 +106,35 @@ class ExpandedMenu extends React.Component<IExpandedMenu> {
         closeDropMenu: this.props.closeDropMenu
     };
 
-    workSpacesSection: IMenuSection = {
+    workSpacesSection: IWorkspaceMenuSection = {
         title: "Workspaces",
         options: [
             {
-                imgSource: "../../../icons/publications.png",
+                imgSource: "icons/publications.png",
                 alt: "publicationsIcon",
                 text: "Client contract",
                 linkTo: "/workspaces",
             },
             {
-                imgSource: "../../../icons/network.png",
+                imgSource: "icons/network.png",
                 alt: "networkIcon",
                 text: "Supplier contract",
                 linkTo: "/workspaces",
             },
             {
-                imgSource: "../../../icons/entities2.png",
+                imgSource: "icons/entities2.png",
                 alt: "entitiesIcon",
                 text: "Corporate",
                 linkTo: "/workspaces",
             },
             {
-                imgSource: "../../../icons/ecosystem.png",
+                imgSource: "icons/ecosystem.png",
                 alt: "ecosystemIcon",
                 text: "Group Norms",
                 linkTo: "/workspaces",
             },
             {
-                imgSource: "../../../icons/comments.png",
+                imgSource: "icons/comments.png",
                 alt: "commentsIcon",
                 text: "Real estate contracts",
                 linkTo: "/workspaces",
@@ -184,7 +185,7 @@ class ExpandedMenu extends React.Component<IExpandedMenu> {
                             options={this.platformSection.options.filter(el => this.filterCheck(el))}
                             closeDropMenu={this.props.closeDropMenu}
                         />
-                        <MenuSection
+                        <WorkspaceMenuSection
                             title={this.workSpacesSection.title}
                             options={this.workSpacesSection.options.filter(el => this.filterCheck(el))}
                             closeDropMenu={this.props.closeDropMenu}

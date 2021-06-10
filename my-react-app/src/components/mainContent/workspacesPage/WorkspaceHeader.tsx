@@ -20,12 +20,16 @@ const MainPhotoHolder = styled.div`
 const ContentHolder = styled.div`
     display:flex;
     position:relative;
+    align-items:center;
 `;
 const BigIconHolder = styled.div`
     display:flex;
+    width:65px;
+    height:70px;
     padding:20px;
     margin:0 20px;
     align-items:center;
+    box-sizing:border-box;
     justify-content:center;
 `;
 const BigIcon = styled.img`
@@ -65,7 +69,7 @@ const WorkspaceHeader: FC<IWorkspaceHeader> = (props) => {
             </MainPhotoHolder>
             <ContentHolder>
                 <BigIconHolder>
-                    <BigIcon src={`icons/${props.iconName}.png`} alt={`${props.iconName}Icon`} />
+                    <BigIcon src={props.iconName} alt={`Icon`} />
                 </BigIconHolder>
                 <TextHolder>
                     <Title>{props.title}</Title>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import WorkspaceHeader from './WorkspaceHeader';
 import HardcodedSection from './HardcodedSection';
 import LatestUpdates from './LatestUpdates';
+import { useLocation } from 'react-router-dom';
 
 const Wrapper = styled.div`
     display:flex;
@@ -11,12 +12,13 @@ const Wrapper = styled.div`
     max-width:1200px;
     margin-top:20px;
 `;
-const Workspaces:FC = (props) =>{
-    return(
+const Workspaces: FC = (props) => {
+    const location: any = useLocation();
+    return (
         <Wrapper>
-            <WorkspaceHeader iconName={'entities'} title={'tytul'}/>
-            <HardcodedSection/>
-            <LatestUpdates/>
+            <WorkspaceHeader iconName={location?.state?.icon} title={location?.state?.title} />
+            <HardcodedSection />
+            <LatestUpdates />
         </Wrapper>
     );
 }

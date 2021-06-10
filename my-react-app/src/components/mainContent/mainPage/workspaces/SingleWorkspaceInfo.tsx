@@ -28,7 +28,7 @@ const SingleWorkspaceInfo: FC<ISingleWorkspaceInfo> = (props) => {
             <Icon src={props.iconUrl} alt={props.title} />
             <Text>{props.title}</Text>
             <Text>&bull;</Text>
-            <Icon src={'../../../../icons/user-plus.png'} alt={props.title} />
+            <Icon src={'icons/user-plus.png'} alt={props.title} />
             <Text>
                 {(Math.random() * 100).toFixed()} Users
             </Text>

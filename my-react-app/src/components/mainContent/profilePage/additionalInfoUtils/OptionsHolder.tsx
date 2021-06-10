@@ -8,10 +8,12 @@ const Wrapper = styled.div`
     flex-wrap:wrap;
     margin-bottom:15px;
 `;
+
 const Select = styled.select`
     width:200px;
     margin:5px;
-    `;
+`;
+
 interface IOptionsHolder {
     id: string;
     allOptions: string[];

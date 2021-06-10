@@ -22,10 +22,13 @@ const CustomSlider = styled(Slider)`
     display:flex;
     align-items:center;
     width:100%;
-    overflow: hidden;
     .slick-list{
         height:210px;
     }
+    .slick-prev::before, .slick-next::before{
+        color:black;
+    }
+
 `;
 const WorkspacesSection: FC = () => {
 
@@ -42,11 +45,11 @@ const WorkspacesSection: FC = () => {
             <Header>Workspaces</Header>
             <Container>
                 <CustomSlider {...settings}>
-                    <SingleWorkspace title={'Client contract'} iconUrl={'../../icons/publications.png'} alt={'publications'}/>
-                    <SingleWorkspace title={'Supplier contract'} iconUrl={'../../icons/people.png'} alt={'people'}/>
-                    <SingleWorkspace title={'Corporate'} iconUrl={'../../icons/entities.png'} alt={'entities'}/>
-                    <SingleWorkspace title={'Real estate contracts'} iconUrl={'../../icons/comments.png'} alt={'comments'}/>
-                    <SingleWorkspace title={'Group Norms'} iconUrl={'../../icons/ecosystem.png'} alt={'ecosystem'}/>
+                    <SingleWorkspace title={'Client contract'} iconUrl={'icons/publications.png'} alt={'publications'} />
+                    <SingleWorkspace title={'Supplier contract'} iconUrl={'icons/people.png'} alt={'people'} />
+                    <SingleWorkspace title={'Corporate'} iconUrl={'icons/entities.png'} alt={'entities'} />
+                    <SingleWorkspace title={'Real estate contracts'} iconUrl={'icons/comments.png'} alt={'comments'} />
+                    <SingleWorkspace title={'Group Norms'} iconUrl={'icons/ecosystem.png'} alt={'ecosystem'} />
                 </CustomSlider>
             </Container>
         </Wrapper>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IState } from '../../../../reducers'
 import { IPhotosReducer } from '../../../../reducers/photosReducers';
 import { useSelector } from 'react-redux';
-import { IconHolder } from '../../../common/header/pageSelectSection/PageSelect';
+import { Link } from "react-router-dom";
 import SingleWorkspaceInfo from './SingleWorkspaceInfo';
 
 const Wrapper = styled.div`
@@ -72,6 +72,11 @@ const UpdateInfo = styled.div`
     font-size:11px;
     padding-top:10px;
 `;
+const CustomLink = styled(Link)`
+    text-decoration: none;
+    color:black;
+`;
+
 interface ISingleWorkspace {
     title: string;
     iconUrl: string;
@@ -88,28 +93,39 @@ const SingleWorkspace: FC<ISingleWorkspace> = (props) => {
         return nameSplit.length > 1 ? nameSplit[1] : nameSplit[0];
     }
     return (
-        <Wrapper>
-            <PhotoContainer>
-                <ImgHolder src={photosList[0]?.url} alt={photosList[0]?.title} />
-            </PhotoContainer>
-            <MiddleImgContainer>
-                <BigIconHolder>
-                    <BigIcon src={props.iconUrl} alt={props.alt} />
-                </BigIconHolder>
-            </MiddleImgContainer>
-            <Title>
-                {props.title}
-            </Title>
-            <TextContainer>
-                <UpdateInfo>
-                    Last updated {(Math.random() * 10).toFixed()} days ago
+        <CustomLink to={
+            {
+                pathname: "workspaces",
+                state: {
+                    icon: props.iconUrl,
+                    title: props.title,
+                    from: "root"
+                }
+            }
+        }>
+            <Wrapper>
+                <PhotoContainer>
+                    <ImgHolder src={photosList[0]?.url} alt={photosList[0]?.title} />
+                </PhotoContainer>
+                <MiddleImgContainer>
+                    <BigIconHolder>
+                        <BigIcon src={props.iconUrl} alt={props.alt} />
+                    </BigIconHolder>
+                </MiddleImgContainer>
+                <Title>
+                    {props.title}
+                </Title>
+                <TextContainer>
+                    <UpdateInfo>
+                        Last updated {(Math.random() * 10).toFixed()} days ago
                 </UpdateInfo>
-                <SingleWorkspaceInfo
-                    iconUrl={props.iconUrl}
-                    title={nameHandler(props.title)}
-                />
-            </TextContainer>
-        </Wrapper>
+                    <SingleWorkspaceInfo
+                        iconUrl={props.iconUrl}
+                        title={nameHandler(props.title)}
+                    />
+                </TextContainer>
+            </Wrapper>
+        </CustomLink >
     );
 };
 export default SingleWorkspace;
