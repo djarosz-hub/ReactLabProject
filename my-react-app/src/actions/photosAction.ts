@@ -4,7 +4,7 @@ import { ISinglePhoto } from '../entities/photos';
 
 export const getPhotos = (): Promise<ISinglePhoto> => ((dispatch: Dispatch) => {
     const photosList: Promise<ISinglePhoto>[] = [];
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < 31; i++) {
         photosList.push(
             fetch(`https://jsonplaceholder.typicode.com/photos?id=${i}`)
                 .then(res => res.json())

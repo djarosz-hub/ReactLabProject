@@ -23,54 +23,36 @@ const Title = styled.div`
 
 const AdditionalInfoSection: FC = () => {
     const [editableNow, setEditable] = useState(false);
-    const [expertiseList, setExpertiseList] = useState([expertise[0]]);
-    const [practiceLawList, setPracticeLawList] = useState([practiceLaw[0]]);
-    const [specialtiesList, setSpecialtiesList] = useState([specialties[0]]);
-    const [countiesList, setCountiesList] = useState([counties[0]]);
-
-    const test = (param: string[]) => {
-        // console.log({param})
-        setExpertiseList(param)
-    }
     return (
         <Wrapper>
             <Title>
                 <EditIconHolder onClick={() => setEditable(!editableNow)}>
-                    <img src='../../../icons/cog.png' alt='cogIcon' />
+                    <img src='icons/cog.png' alt='cogIcon' />
                 </EditIconHolder>
                 Expertise
             </Title>
-            {/* {console.log({expertiseList})} */}
             <OptionsHolder
                 id={'expertise'}
-                selectedOptions={expertiseList}
                 allOptions={expertise}
                 editable={editableNow}
-                setValues={test}
             />
             <Title>Specialties</Title>
             <OptionsHolder
                 id={'specialties'}
-                selectedOptions={specialtiesList}
                 allOptions={specialties}
                 editable={editableNow}
-                setValues={setSpecialtiesList}
             />
             <Title>Admission to practice law</Title>
             <OptionsHolder
                 id={'practiceLaw'}
-                selectedOptions={practiceLawList}
                 allOptions={practiceLaw}
                 editable={editableNow}
-                setValues={setPracticeLawList}
             />
             <Title>Counties</Title>
             <OptionsHolder
                 id={'counties'}
-                selectedOptions={countiesList}
                 allOptions={counties}
                 editable={editableNow}
-                setValues={setCountiesList}
             />
         </Wrapper>
     )

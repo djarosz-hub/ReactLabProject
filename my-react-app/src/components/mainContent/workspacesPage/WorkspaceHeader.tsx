@@ -65,7 +65,6 @@ const WorkspaceHeader: FC<IWorkspaceHeader> = (props) => {
             </MainPhotoHolder>
             <ContentHolder>
                 <BigIconHolder>
-                    {console.log(`icons/${props.iconName}.png`)}
                     <BigIcon src={`icons/${props.iconName}.png`} alt={`${props.iconName}Icon`} />
                 </BigIconHolder>
                 <TextHolder>

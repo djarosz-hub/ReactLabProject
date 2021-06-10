@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import PhotoPile from './PhotoPile';
 
 const Wrapper = styled.div`
     max-width:1200px;
@@ -8,9 +9,10 @@ const Wrapper = styled.div`
     flex-direction:column;
 `;
 
-const Entities:FC = () => {
+const Entities: FC = () => {
     return (
         <Wrapper>
+            <PhotoPile photoUrl='https://via.placeholder.com/600/92c952' title='sdsdsdsds' isMosaic={true}></PhotoPile>
         </Wrapper>
     );
 }

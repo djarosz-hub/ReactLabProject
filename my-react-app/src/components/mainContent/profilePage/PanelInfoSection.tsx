@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, SetStateAction, useState, useEffect} from 'react';
+import React, { Dispatch, FC, SetStateAction, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ISingleUser } from '../../../entities/users';
 import { ISinglePhoto } from '../../../entities/photos';
@@ -76,21 +76,23 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
     const [termsCondInterval, setTermsCondInterval] = useState(wageInterval[1]);
     const [termsCondWage, setTermsCondWage] = useState(10);
     const allInternalCorrList = props.users.slice(1, props.users.length);
-    const [selectedInternalCorrList, setSelectedInternalCorrList] = useState<ISingleUser[]>([allInternalCorrList[0], allInternalCorrList[1]]);
+    const [selectedInternalCorrList, setSelectedInternalCorrList] = useState<ISingleUser[]>([allInternalCorrList?.[0], allInternalCorrList?.[1]]);
+
     const filterInternalCorrOptions = (): ISingleUser[] => {
         const filteredList: ISingleUser[] = [];
-        console.log(filteredList)
         allInternalCorrList.forEach(user => {
             if (!selectedInternalCorrList.find(el => el.name === user.name))
                 filteredList.push(user);
         });
-        console.log(filteredList)
         return filteredList;
     }
     const [internalCorrOptionsList, setInternalCorrOptionsList] = useState<ISingleUser[]>(filterInternalCorrOptions());
-    useEffect(()=>{
 
-    },[selectedInternalCorrList, internalCorrOptionsList])
+    useEffect(() => {
+        setInternalCorrOptionsList(filterInternalCorrOptions());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedInternalCorrList])
+
     const wageEditHandler = (val: string, setFunc: Dispatch<SetStateAction<number>>, title: string) => {
         if (isNaN(+val))
             return alert(`${title} wage must be number`);
@@ -123,16 +125,12 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
             const user = allInternalCorrList.find(el => el.name === corrToAdd.value);
             if (user !== undefined) {
                 newUsersList.push(user);
-                console.log(newUsersList)
                 setSelectedInternalCorrList(newUsersList);
-                setInternalCorrOptionsList(filterInternalCorrOptions());
             }
         }
     }
     const removeInternalCorr = (userToDelete: string) => {
-        console.log(selectedInternalCorrList);
         const newUsersList = selectedInternalCorrList.filter(user => user.name !== userToDelete);
-        console.log(newUsersList);
         setSelectedInternalCorrList(newUsersList);
         setInternalCorrOptionsList(filterInternalCorrOptions());
     }
@@ -174,7 +172,7 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
                     {termsCondInterval} {termsCondWage}k&euro; retainer - see with&nbsp;{termsCondUser}
                 </InfoHolder>}
             <FilesAttacher
-            editableNow={editableNow}/>
+                editableNow={editableNow} />
             <BoldTitle>Services &amp; projects</BoldTitle>
 
             {editableNow ?
@@ -187,14 +185,12 @@ const PanelInfoSection: FC<IPanelInfoSeciton> = (props) => {
                 <BoldTitle>Internal correspondants</BoldTitle>
                 {editableNow &&
                     <div>
-                        {console.log(internalCorrOptionsList)}
-                        <LongerSelect id='internalCorrSelect' defaultValue={internalCorrOptionsList[0]?.name}>
+                        <LongerSelect id='internalCorrSelect' defaultValue={internalCorrOptionsList?.[0]?.name}>
                             {internalCorrOptionsList.map((user, index) => <option key={index} value={user.name}>{user.name}</option>)}
                         </LongerSelect>
                         <AddBtn onClick={addInternalCorr}>Add</AddBtn>
                     </div>}
             </InternalsEditHolder>
-            {console.log(selectedInternalCorrList)}
             {selectedInternalCorrList.map(user =>
                 <InternalCorrespondant
                     key={user.id}
