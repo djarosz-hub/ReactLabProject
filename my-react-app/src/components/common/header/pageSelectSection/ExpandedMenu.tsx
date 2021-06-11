@@ -100,7 +100,7 @@ class ExpandedMenu extends React.Component<IExpandedMenu> {
                 imgSource: "../../../icons/administration.png",
                 alt: "administrationIcon",
                 text: "Administration",
-                linkTo: "/profile",
+                linkTo: "/administration",
             }
         ],
         closeDropMenu: this.props.closeDropMenu
@@ -150,13 +150,13 @@ class ExpandedMenu extends React.Component<IExpandedMenu> {
                 imgSource: "../../../icons/privacy.png",
                 alt: "privacyIcon",
                 text: "Privacy",
-                linkTo: "/profile"
+                linkTo: "/privacy"
             },
             {
                 imgSource: "../../../icons/settings.png",
                 alt: "settingsIcon",
                 text: "Settings",
-                linkTo: "/profile"
+                linkTo: "/settings"
             }
         ],
         closeDropMenu: this.props.closeDropMenu

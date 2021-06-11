@@ -10,8 +10,10 @@ const Wrapper = styled.div`
     flex-direction:column;
     padding:10px 20px 15px 20px;
     background:white;
-    box-shadow:0 2px 3px #d8d8d8;
+    box-shadow:0 2px 5px #777777;
     border-radius:3px;
+    position:absolute;
+    margin-top:10px;
 `;
 const Header = styled.div`
     color:#c2c1c1;

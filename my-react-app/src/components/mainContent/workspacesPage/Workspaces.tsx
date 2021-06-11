@@ -16,7 +16,7 @@ const Workspaces: FC = (props) => {
     const location: any = useLocation();
     return (
         <Wrapper>
-            <WorkspaceHeader iconName={location?.state?.icon} title={location?.state?.title} />
+            <WorkspaceHeader iconName={location?.state ? location?.state?.icon : 'icons/entities.png'} title={location?.state ? location?.state?.title : 'Custom workspace'} />
             <HardcodedSection />
             <LatestUpdates />
         </Wrapper>

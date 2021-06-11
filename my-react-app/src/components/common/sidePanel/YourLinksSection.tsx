@@ -50,7 +50,7 @@ const YourLinksSection: FC = () => {
                 <TextHolder>
                     Your network
                 </TextHolder>
-                <CustomLink to={"/publications"}>
+                <CustomLink to={"/network"}>
                     <DirectionIcon>
                         <IconHolder>
                             <img src="../../../icons/user-plus.png" alt="userPlusIcon" />
